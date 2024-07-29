@@ -89,7 +89,11 @@
 
   <section class="description">
     
-<p>Klasa przechowuje informacje o wieżach, dyskach i liczbie ruchów</p>
+<p>Klasa reprezentuje wieże Hanoi.</p>
+
+<p>Klasa przechowuje informacje o wieżach, dyskach i liczbie ruchów.</p>
+
+<p>Klasa umożliwia realizację algorytmu układania wieży Hanoi dla podanej przez użytkownika liczby dysków.</p>
 
   </section>
 
@@ -115,9 +119,12 @@
 
         <div class="method-description">
           <p>Inicjalizacja klasy</p>
+<ul><li>
+<p>disks [Integer] - Liczba dysków, które zostaną umieszczone na początkowej wieży A.</p>
+</li></ul>
 
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File tower.rb, line 6</span>
+            <pre><span class="ruby-comment"># File tower.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">disks</span>)
   <span class="ruby-ivar">@towers</span> = {
     <span class="ruby-string">&quot;A&quot;</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">disks</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">reverse</span>,
@@ -150,17 +157,19 @@
         </div>
 
         <div class="method-description">
-          <p>Funkcja wyświetlająca aktualny stan wież</p>
+          <p>Funkcja wyświetlająca aktualny stan wież.</p>
+
+<p>Zwracany typ: [void]</p>
 
           <div class="method-source-code" id="display-source">
-            <pre><span class="ruby-comment"># File tower.rb, line 24</span>
+            <pre><span class="ruby-comment"># File tower.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">display</span>
   <span class="ruby-identifier">max_disk</span> = <span class="ruby-ivar">@disks</span>
   <span class="ruby-identifier">system</span>(<span class="ruby-string">&#39;cls&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">system</span>(<span class="ruby-string">&#39;clear&#39;</span>)
   (<span class="ruby-identifier">max_disk</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">level</span><span class="ruby-operator">|</span>
-    <span class="ruby-ivar">@towers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tower</span>, <span class="ruby-identifier">disks</span> <span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@towers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tower</span>, <span class="ruby-identifier">disks</span><span class="ruby-operator">|</span>
       <span class="ruby-keyword">if</span> <span class="ruby-identifier">disks</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">level</span>
-        <span class="ruby-identifier">print</span> <span class="ruby-identifier">disks</span>[<span class="ruby-identifier">level</span><span class="ruby-value">-1</span>]&amp;.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">center</span>(<span class="ruby-value">3</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39; &#39;</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-identifier">disks</span>[<span class="ruby-identifier">level</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>]&amp;.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">center</span>(<span class="ruby-value">3</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39; &#39;</span>
       <span class="ruby-keyword">else</span>
         <span class="ruby-identifier">print</span> <span class="ruby-string">&#39; &#39;</span>.<span class="ruby-identifier">center</span>(<span class="ruby-value">3</span>)
       <span class="ruby-keyword">end</span>
@@ -182,25 +191,36 @@
         <div class="method-header">
           <div class="method-heading">
             <span class="method-name">hanoi</span><span
-              class="method-args">(n,from,add,to)</span>
+              class="method-args">(n, from, add, to)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
         </div>
 
         <div class="method-description">
-          <p>Realizacja algorytmu układania wieży Hanoi</p>
+          <p>Realizacja algorytmu układania wieży Hanoi.</p>
+<ul><li>
+<p>n [Integer] - Liczba dysków wprowadzonych przez użytkownika.</p>
+</li><li>
+<p>from [Array] - Wieża początkowa.</p>
+</li><li>
+<p>add [Array] - Wieża pomocnicza.</p>
+</li><li>
+<p>to [Array] - Wieża docelowa.</p>
+</li></ul>
+
+<p>Zwracany typ: [void]</p>
 
           <div class="method-source-code" id="hanoi-source">
-            <pre><span class="ruby-comment"># File tower.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hanoi</span>(<span class="ruby-identifier">n</span>,<span class="ruby-identifier">from</span>,<span class="ruby-identifier">add</span>,<span class="ruby-identifier">to</span>)
+            <pre><span class="ruby-comment"># File tower.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hanoi</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">add</span>, <span class="ruby-identifier">to</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
     <span class="ruby-identifier">move_disk</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
     <span class="ruby-identifier">display</span>
   <span class="ruby-keyword">else</span>
-    <span class="ruby-identifier">hanoi</span>(<span class="ruby-identifier">n</span><span class="ruby-value">-1</span>,<span class="ruby-identifier">from</span>,<span class="ruby-identifier">to</span>,<span class="ruby-identifier">add</span>)
-    <span class="ruby-identifier">move_disk</span>(<span class="ruby-identifier">from</span>,<span class="ruby-identifier">to</span>)
+    <span class="ruby-identifier">hanoi</span>(<span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">add</span>)
+    <span class="ruby-identifier">move_disk</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
     <span class="ruby-identifier">display</span>
-    <span class="ruby-identifier">hanoi</span>(<span class="ruby-identifier">n</span><span class="ruby-value">-1</span>,<span class="ruby-identifier">add</span>,<span class="ruby-identifier">from</span>,<span class="ruby-identifier">to</span>)
+    <span class="ruby-identifier">hanoi</span>(<span class="ruby-identifier">n</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">add</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -213,17 +233,24 @@
         <div class="method-header">
           <div class="method-heading">
             <span class="method-name">move_disk</span><span
-              class="method-args">(from,to)</span>
+              class="method-args">(from, to)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
         </div>
 
         <div class="method-description">
-          <p>Funkcja przenosząca dysk z obecnej wieży na kolejną</p>
+          <p>Funkcja przenosząca dysk z obecnej wieży na kolejną.</p>
+<ul><li>
+<p>from [Array] - Obecna wieża, na której znajduje się dysk.</p>
+</li><li>
+<p>to [Array] - Wieża, na którą zostanie przeniesiony dysk.</p>
+</li></ul>
+
+<p>Zwracany typ: [void]</p>
 
           <div class="method-source-code" id="move_disk-source">
-            <pre><span class="ruby-comment"># File tower.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">move_disk</span>(<span class="ruby-identifier">from</span>,<span class="ruby-identifier">to</span>)
+            <pre><span class="ruby-comment"># File tower.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">move_disk</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
   <span class="ruby-identifier">disk</span> = <span class="ruby-ivar">@towers</span>[<span class="ruby-identifier">from</span>].<span class="ruby-identifier">pop</span>
   <span class="ruby-ivar">@towers</span>[<span class="ruby-identifier">to</span>].<span class="ruby-identifier">push</span>(<span class="ruby-identifier">disk</span>)
   <span class="ruby-ivar">@count_move</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
@@ -242,7 +269,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.3.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.7.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

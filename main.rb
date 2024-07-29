@@ -10,7 +10,7 @@ while n < 3
   n = Integer(gets)
 end
 
-#Inicjacja klasy Tower i rozpoczęcie układania
+# Inicjacja klasy Tower i rozpoczęcie układania
 tower = Tower.new(n)
 tower.display
 tower.hanoi(n,'A','B','C')
