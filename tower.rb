@@ -1,4 +1,4 @@
-# Klasa reprezentuje wieżę Hanoi
+# Klasa reprezentuje wieże Hanoi
 
 # Klasa przechowuje informacje o wieżach, dyskach i liczbie ruchów
 class Tower
@@ -37,7 +37,7 @@ class Tower
     end
     puts ' A   B   C '
     puts "Liczba ruchow: #{@count_move}"
-    sleep(0.9)
+    sleep(0.7)
   end
 
   # Realizacja algorytmu układania wieży Hanoi
