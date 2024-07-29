@@ -1,6 +1,6 @@
 # Klasa reprezentuje wieże Hanoi.
 #
-# Klasa przechowuje informacje o wieżach, dyskach i liczbie ruchów.
+# Klasa przechowuje informacje o wieżach (A,B,C), dyskach i liczbie ruchów.
 #
 # Klasa umożliwia realizację algorytmu układania wieży Hanoi dla podanej
 # przez użytkownika liczby dysków.
@@ -20,11 +20,11 @@ class Tower
 
   # Funkcja przenosząca dysk z obecnej wieży na kolejną.
   #
-  # * from [Array] - Obecna wieża, na której znajduje się dysk.
+  # * from [String] - Klucz obecnej wieży, na której znajduje się dysk.
   #
-  # * to [Array] - Wieża, na którą zostanie przeniesiony dysk.
+  # * to [String] - Klucz wieży, na którą zostanie przeniesiony dysk.
   #
-  # Zwracany typ: [void]
+  # Zwracany typ: brak
   def move_disk(from, to)
     disk = @towers[from].pop
     @towers[to].push(disk)
@@ -33,7 +33,7 @@ class Tower
 
   # Funkcja wyświetlająca aktualny stan wież.
   #
-  # Zwracany typ: [void]
+  # Zwracany typ: brak
   def display
     max_disk = @disks
     system('cls') || system('clear')
@@ -57,14 +57,13 @@ class Tower
   #
   # * n [Integer] - Liczba dysków wprowadzonych przez użytkownika.
   # 
-  # * from [Array] - Wieża początkowa.
+  # * from [String] - Klucz wieży początkowej.
   #
-  # * add [Array] - Wieża pomocnicza.
+  # * add [String] - Klucz wieży pomocniczej.
   #
-  # * to [Array] - Wieża docelowa.
-  # 
-  # Zwracany typ: [void]
-
+  # * to [String] - Klucz wieży docelowej.
+  #
+  # Zwracany typ: brak
   def hanoi(n, from, add, to)
     if n == 1
       move_disk(from, to)
