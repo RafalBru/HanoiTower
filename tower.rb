@@ -35,6 +35,7 @@ class Tower
   #
   # Zwracany typ: brak
   def display
+    print "\e[?25l"
     max_disk = @disks
     system('cls') || system('clear')
     (max_disk.downto(1)).each do |level|
