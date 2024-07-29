@@ -2,5 +2,6 @@
 Program realizujący zagadnienie wieży Hanoi w języku Ruby
 
 Uruchomienie w Dockerze:
-1. sklonuj repozytorium https://github.com/RafalBru/HanoiTower
-2. przejdź do pobranego repozytorium i wydaj komendę: ruby main.rb
+1. Uruchom docker-compose z zainstalowanym językiem Ruby.
+2. Sklonuj repozytorium https://github.com/RafalBru/HanoiTower
+3. Przejdź do głównego folderu repozytorium i wywołaj komendę: ruby main.rb
