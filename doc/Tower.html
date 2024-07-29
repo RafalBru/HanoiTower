@@ -201,17 +201,23 @@
 <ul><li>
 <p>n [Integer] - Liczba dysków wprowadzonych przez użytkownika.</p>
 </li><li>
-<p>from [String] - Klucz wieży początkowej.</p>
+<p>from [String] - Nazwa wieży początkowej.</p>
 </li><li>
-<p>add [String] - Klucz wieży pomocniczej.</p>
+<p>add [String] - Nazwa wieży pomocniczej.</p>
 </li><li>
-<p>to [String] - Klucz wieży docelowej.</p>
+<p>to [String] - Nazwa wieży docelowej.</p>
 </li></ul>
+
+<p>Przykład:</p>
+
+<pre class="ruby"><span class="ruby-identifier">tower</span> = <span class="ruby-constant">Tower</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>)
+<span class="ruby-identifier">tower</span>.<span class="ruby-identifier">hanoi</span>(<span class="ruby-value">3</span>,<span class="ruby-string">&#39;A&#39;</span>,<span class="ruby-string">&#39;B&#39;</span>,<span class="ruby-string">&#39;C&#39;</span>)
+</pre>
 
 <p>Zwracany typ: brak</p>
 
           <div class="method-source-code" id="hanoi-source">
-            <pre><span class="ruby-comment"># File tower.rb, line 67</span>
+            <pre><span class="ruby-comment"># File tower.rb, line 71</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hanoi</span>(<span class="ruby-identifier">n</span>, <span class="ruby-identifier">from</span>, <span class="ruby-identifier">add</span>, <span class="ruby-identifier">to</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
     <span class="ruby-identifier">move_disk</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
@@ -241,9 +247,9 @@
         <div class="method-description">
           <p>Funkcja przenosząca dysk z obecnej wieży na kolejną.</p>
 <ul><li>
-<p>from [String] - Klucz obecnej wieży, na której znajduje się dysk.</p>
+<p>from [String] - Nazwa wieży, na której znajduje się dysk.</p>
 </li><li>
-<p>to [String] - Klucz wieży, na którą zostanie przeniesiony dysk.</p>
+<p>to [String] - Nazwa wieży, na którą zostanie przeniesiony dysk.</p>
 </li></ul>
 
 <p>Zwracany typ: brak</p>

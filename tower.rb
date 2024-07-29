@@ -20,9 +20,9 @@ class Tower
 
   # Funkcja przenosząca dysk z obecnej wieży na kolejną.
   #
-  # * from [String] - Klucz obecnej wieży, na której znajduje się dysk.
+  # * from [String] - Nazwa wieży, na której znajduje się dysk.
   #
-  # * to [String] - Klucz wieży, na którą zostanie przeniesiony dysk.
+  # * to [String] - Nazwa wieży, na którą zostanie przeniesiony dysk.
   #
   # Zwracany typ: brak
   def move_disk(from, to)
@@ -57,11 +57,15 @@ class Tower
   #
   # * n [Integer] - Liczba dysków wprowadzonych przez użytkownika.
   # 
-  # * from [String] - Klucz wieży początkowej.
+  # * from [String] - Nazwa wieży początkowej.
   #
-  # * add [String] - Klucz wieży pomocniczej.
+  # * add [String] - Nazwa wieży pomocniczej.
   #
-  # * to [String] - Klucz wieży docelowej.
+  # * to [String] - Nazwa wieży docelowej.
+  #
+  # Przykład:
+  #   tower = Tower.new(3)
+  #   tower.hanoi(3,'A','B','C')
   #
   # Zwracany typ: brak
   def hanoi(n, from, add, to)
