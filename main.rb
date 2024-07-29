@@ -14,3 +14,4 @@ end
 tower = Tower.new(n)
 tower.display
 tower.hanoi(n,:A,:B,:C)
+print "\e[?25h"
