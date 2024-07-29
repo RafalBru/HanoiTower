@@ -127,9 +127,9 @@
             <pre><span class="ruby-comment"># File tower.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">disks</span>)
   <span class="ruby-ivar">@towers</span> = {
-    <span class="ruby-string">&quot;A&quot;</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">disks</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">reverse</span>,
-    <span class="ruby-string">&quot;B&quot;</span> <span class="ruby-operator">=&gt;</span> [],
-    <span class="ruby-string">&quot;C&quot;</span> <span class="ruby-operator">=&gt;</span> []
+    <span class="ruby-value">:A</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">disks</span>).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">reverse</span>,
+    <span class="ruby-value">:B</span> <span class="ruby-operator">=&gt;</span> [],
+    <span class="ruby-value">:C</span> <span class="ruby-operator">=&gt;</span> []
   }
   <span class="ruby-ivar">@disks</span> = <span class="ruby-identifier">disks</span>
   <span class="ruby-ivar">@count_move</span> = <span class="ruby-value">0</span>
@@ -201,17 +201,17 @@
 <ul><li>
 <p>n [Integer] - Liczba dysków wprowadzonych przez użytkownika.</p>
 </li><li>
-<p>from [String] - Nazwa wieży początkowej.</p>
+<p>from [Symbol] - Nazwa wieży początkowej.</p>
 </li><li>
-<p>add [String] - Nazwa wieży pomocniczej.</p>
+<p>add [Symbol] - Nazwa wieży pomocniczej.</p>
 </li><li>
-<p>to [String] - Nazwa wieży docelowej.</p>
+<p>to [Symbol] - Nazwa wieży docelowej.</p>
 </li></ul>
 
 <p>Przykład:</p>
 
 <pre class="ruby"><span class="ruby-identifier">tower</span> = <span class="ruby-constant">Tower</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">3</span>)
-<span class="ruby-identifier">tower</span>.<span class="ruby-identifier">hanoi</span>(<span class="ruby-value">3</span>,<span class="ruby-string">&#39;A&#39;</span>,<span class="ruby-string">&#39;B&#39;</span>,<span class="ruby-string">&#39;C&#39;</span>)
+<span class="ruby-identifier">tower</span>.<span class="ruby-identifier">hanoi</span>(<span class="ruby-value">3</span>,<span class="ruby-value">:A</span>,<span class="ruby-value">:B</span>,<span class="ruby-value">:C</span>)
 </pre>
 
 <p>Zwracany typ: brak</p>
@@ -247,9 +247,9 @@
         <div class="method-description">
           <p>Funkcja przenosząca dysk z obecnej wieży na kolejną.</p>
 <ul><li>
-<p>from [String] - Nazwa wieży, na której znajduje się dysk.</p>
+<p>from [Symbol] - Nazwa wieży, na której znajduje się dysk.</p>
 </li><li>
-<p>to [String] - Nazwa wieży, na którą zostanie przeniesiony dysk.</p>
+<p>to [Symbol] - Nazwa wieży, na którą zostanie przeniesiony dysk.</p>
 </li></ul>
 
 <p>Zwracany typ: brak</p>

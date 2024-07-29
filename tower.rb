@@ -10,9 +10,9 @@ class Tower
   # * disks [Integer] - Liczba dysków, które zostaną umieszczone na początkowej wieży A.
   def initialize(disks)
     @towers = {
-      "A" => (1..disks).to_a.reverse,
-      "B" => [],
-      "C" => []
+      :A => (1..disks).to_a.reverse,
+      :B => [],
+      :C => []
     }
     @disks = disks
     @count_move = 0
@@ -20,9 +20,9 @@ class Tower
 
   # Funkcja przenosząca dysk z obecnej wieży na kolejną.
   #
-  # * from [String] - Nazwa wieży, na której znajduje się dysk.
+  # * from [Symbol] - Nazwa wieży, na której znajduje się dysk.
   #
-  # * to [String] - Nazwa wieży, na którą zostanie przeniesiony dysk.
+  # * to [Symbol] - Nazwa wieży, na którą zostanie przeniesiony dysk.
   #
   # Zwracany typ: brak
   def move_disk(from, to)
@@ -57,15 +57,15 @@ class Tower
   #
   # * n [Integer] - Liczba dysków wprowadzonych przez użytkownika.
   # 
-  # * from [String] - Nazwa wieży początkowej.
+  # * from [Symbol] - Nazwa wieży początkowej.
   #
-  # * add [String] - Nazwa wieży pomocniczej.
+  # * add [Symbol] - Nazwa wieży pomocniczej.
   #
-  # * to [String] - Nazwa wieży docelowej.
+  # * to [Symbol] - Nazwa wieży docelowej.
   #
   # Przykład:
   #   tower = Tower.new(3)
-  #   tower.hanoi(3,'A','B','C')
+  #   tower.hanoi(3,:A,:B,:C)
   #
   # Zwracany typ: brak
   def hanoi(n, from, add, to)
