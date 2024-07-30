@@ -38,22 +38,22 @@ class Tower
     print "\e[?25l"
     max_disk = @disks
     system('cls') || system('clear')
+    width = max_disk * 2 + 1
     (max_disk.downto(1)).each do |level|
       @towers.each do |tower, disks|
         if disks.size >= level
           disk_size = disks[level - 1]
           disk = '=' * (2 * disk_size - 1)  
-          print disk.center(9) || '|'
+          print disk.center(width)
         else
-          print ' '.center(9)
+          print '|'.center(width)
         end
-        print '|'
       end
       puts
     end
-    puts '    A         B         C '.center(9)
+    puts 'A'.center(width) + 'B'.center(width) + 'C'.center(width)
     puts "Liczba ruchow: #{@count_move}"
-    sleep(0.7)
+    sleep(0.6)
   end
 
   # Realizacja algorytmu układania wieży Hanoi.
