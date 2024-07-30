@@ -39,21 +39,21 @@ class Tower
     max_disk = @disks
     system('cls') || system('clear')
     width = max_disk * 2 + 1
-    min_width = [width,21].min
-    scale = max_disk > 10 ? 0.5 : 1.0
+    #min_width = [width,25].min
+    #scale = max_disk > 12 ? 0.5 : 1.0
     (max_disk.downto(1)).each do |level|
       @towers.each do |tower, disks|
         if disks.size >= level
-          disk_size = Integer(disks[level - 1]*scale)
-          disk = '=' * [(2 * disk_size - 1),1].max 
-          print disk.center(min_width)
+          disk_size = disks[level - 1] #Integer(disks[level - 1]*scale)
+          disk = '=' * (2*disk_size - 1)#[(2 * disk_size - 1),1].max 
+          print disk.center(width)
         else
-          print '|'.center(min_width)
+          print '|'.center(width)
         end
       end
       puts
     end
-    puts 'A'.center(min_width) + 'B'.center(min_width) + 'C'.center(min_width)
+    puts 'A'.center(width) + 'B'.center(width) + 'C'.center(width)
     puts "Liczba ruchow: #{@count_move}"
     sleep(0.6)
   end

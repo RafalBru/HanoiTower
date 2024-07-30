@@ -3,12 +3,13 @@ require_relative 'tower.rb'
 
 # Podanie przez użytkownika liczby dysków
 print "Podaj liczbe dyskow: "
-n = Integer(gets)
-while n < 3
-  puts "Podaj liczbe dyskow wieksza badz rowna 3!"
+n = gets.chomp
+until n =~ /^\d+$/
+  puts "Niepoprawny format! (Tylko liczby całkowite)"
   print "Podaj liczbe dyskow: "
-  n = Integer(gets)
+  n = gets.chomp
 end
+n = Integer(n)
 
 # Inicjacja klasy Tower i rozpoczęcie układania
 tower = Tower.new(n)

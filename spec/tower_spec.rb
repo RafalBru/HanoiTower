@@ -20,6 +20,7 @@ describe Tower do
       tower.hanoi(n,:A,:B,:C)
       expect(tower.instance_variable_get(:@towers)[:C]).to contain_exactly(3,2,1) 
       expect(tower.instance_variable_get(:@count_move)).to eql(7)
+      print "\e[?25h"
     end
   end
 end
