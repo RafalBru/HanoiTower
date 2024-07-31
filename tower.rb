@@ -39,13 +39,11 @@ class Tower
     max_disk = @disks
     system('cls') || system('clear')
     width = max_disk * 2 + 1
-    #min_width = [width,25].min
-    #scale = max_disk > 12 ? 0.5 : 1.0
     (max_disk.downto(1)).each do |level|
       @towers.each do |tower, disks|
         if disks.size >= level
-          disk_size = disks[level - 1] #Integer(disks[level - 1]*scale)
-          disk = '=' * (2*disk_size - 1)#[(2 * disk_size - 1),1].max 
+          disk_size = disks[level - 1]
+          disk = '=' * (2*disk_size - 1)
           print disk.center(width)
         else
           print '|'.center(width)
